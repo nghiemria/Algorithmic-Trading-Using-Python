@@ -38,7 +38,6 @@ for symbol_string in symbol_strings:
     data = requests.get(batch_api_call_url).json()
     for symbol in symbol_string.split(','):
         final_dataframe = final_dataframe.append(pd.Series([symbol, data[symbol]['quote']['latestPrice'], data[symbol]['quote']['peRatio'],'N/A'],index=my_columns),ignore_index=True)
-final_dataframe
 
 #REMOVING GLAMOUR STOCKS
 final_dataframe.sort_values('Price-to-Earnings Ratio',ascending=True,inplace=True)
